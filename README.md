@@ -22,8 +22,8 @@ This project is fully containerized and can be run easily using Docker and Docke
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/varya1441/test-ascendion.git
-    cd test-ascendion
+    git clone https://github.com/varya1441/test-app.git
+    cd test-app
     ```
 
 2.  **Run Docker Compose**:
