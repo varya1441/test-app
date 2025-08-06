@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ascendion-app
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8082
+    restart: unless-stopped
+    networks:
+      - ascendion-network
+
+  frontend:
+    build:
+      context: ./ascendion-ui
+      dockerfile: Dockerfile
+    container_name: ascendion-ui
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    depends_on:
+      - app
+    networks:
+      - ascendion-network
+
+networks:
+  ascendion-network:
+    driver: bridge
